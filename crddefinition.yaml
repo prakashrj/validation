@@ -1,0 +1,137 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.2.4
+  creationTimestamp: null
+  name: petstoreapis.petstore.salesforce.com
+spec:
+  group: petstore.salesforce.com
+  names:
+    kind: PetstoreAPI
+    listKind: PetstoreAPIList
+    plural: petstoreapis
+    singular: petstoreapi
+  scope: Namespaced
+  validation:
+    openAPIV3Schema:
+      description: PetstoreAPI is the Schema for the PetstoreAPIs API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: PetstoreAPISpec defines the desired state of PetstoreAPI
+          properties:
+            json:
+              description: Root
+              properties:
+                category:
+                  description: Category
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                  type: object
+                id:
+                  type: integer
+                name:
+                  type: string
+                photoUrls:
+                  items:
+                    type: string
+                  type: array
+                status:
+                  type: string
+                tags:
+                  items:
+                    description: Tag
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                    type: object
+                  type: array
+              required:
+              - category
+              - id
+              type: object
+            type:
+              type: string
+          type: object
+        status:
+          description: PetstoreAPIStatus defines the observed state of PetstoreAPI
+          properties:
+            message:
+              type: string
+            pod:
+              properties:
+                name:
+                  type: string
+                namespace:
+                  type: string
+                type:
+                  type: string
+              type: object
+            state:
+              type: string
+            statusPayload:
+              description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                of cluster Important: Run "make" to regenerate code after modifying
+                this file'
+              type: string
+            terminated:
+              description: ContainerStateTerminated is a terminated state of a container.
+              properties:
+                containerID:
+                  description: Container's ID in the format 'docker://<container_id>'
+                  type: string
+                exitCode:
+                  description: Exit status from the last termination of the container
+                  format: int32
+                  type: integer
+                finishedAt:
+                  description: Time at which the container last terminated
+                  format: date-time
+                  type: string
+                message:
+                  description: Message regarding the last termination of the container
+                  type: string
+                reason:
+                  description: (brief) reason from the last termination of the container
+                  type: string
+                signal:
+                  description: Signal from the last termination of the container
+                  format: int32
+                  type: integer
+                startedAt:
+                  description: Time at which previous execution of the container started
+                  format: date-time
+                  type: string
+              required:
+              - exitCode
+              type: object
+          type: object
+      type: object
+  version: v1
+  versions:
+  - name: v1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: ["v1"]
