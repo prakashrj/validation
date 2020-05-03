@@ -4,9 +4,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.2.4
   creationTimestamp: null
-  name: petstoreapis.petstore.salesforce.com
+  name: petstoreapis.petstore.example.com
 spec:
-  group: petstore.salesforce.com
+  group: petstore.example.com
   names:
     kind: PetstoreAPI
     listKind: PetstoreAPIList
