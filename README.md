@@ -30,7 +30,7 @@ Ouput: ` detect the invalid fields`
 ```
 spec.validation.openAPIV3Schema.additionalProperties: Forbidden: must not be used at the root
 spec.validation.openAPIV3Schema.type: Required value: must not be empty at the root
-``
+```
 
 ## Testing with craft
 
